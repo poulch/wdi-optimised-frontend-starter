@@ -71,7 +71,7 @@ gulp.task('sass', () => {
       .pipe(dependents())
       .pipe(sass())
       .pipe(autoprefixer())
-      //.pipe(minifyCss())
+      .pipe(minifyCss())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist_assets_folder + 'css'))
     .pipe(browserSync.stream());
@@ -205,21 +205,21 @@ gulp.task('generate-critical-css', (cb) => {
 });
 
 gulp.task(
-  'build', 
+  'build',
   gulp.series(
-    'clear', 
-    /*'html-minified'*/ 
-    'html', 
-    'sass', 
-    'less', 
-    'stylus', 
-    'js', 
-    'js-copy', 
-    'fonts', 
+    'clear',
+    'html-minified',
+    'html',
+    'sass',
+    'less',
+    'stylus',
+    'js',
+    'js-copy',
+    'fonts',
     'videos',
-    'extra-files', 
-    'images', 
-    /*'purgecss',*/
+    'extra-files',
+    'images',
+    'purgecss',
     /*'generate-critical-css',*/
     /*'generate-service-worker',*/
   )
